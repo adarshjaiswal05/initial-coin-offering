@@ -40,22 +40,7 @@ contract MyTokenSale is Crowdsale, Ownable {
         super._preValidatePurchase(beneficiary, weiAmount);
     }
     
-    
-    
-    // function for getting the rate of token in token bits 
-    
-    function _getTokenAmount(uint256 weiAmount)
-        internal
-        view
-        override
-        returns (uint256)
-    {
-        return weiAmount.mul(rateOfToken());
-    }
-    
-    
-
-    //assume 1 eth = 3000$ approx 
+     //assume 1 eth = 3000$ approx 
     // assume decimal pts =18
     //assume rate of token in final stage = 0.03 
     
@@ -73,6 +58,23 @@ contract MyTokenSale is Crowdsale, Ownable {
         }
         
     }
+    
+    
+    
+    // function for getting the rate of token in token bits 
+    
+    function _getTokenAmount(uint256 weiAmount)
+        internal
+        view
+        override
+        returns (uint256)
+    {
+        return weiAmount.mul(rateOfToken());
+    }
+    
+    
+
+
 
 //function for the updating the remaning tokens after a purchase made
     function _processPurchase(address beneficiary, uint256 tokenAmount)
